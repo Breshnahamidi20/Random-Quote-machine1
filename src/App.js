@@ -3,22 +3,21 @@ import React, { useState, useEffect } from 'react';
 const App = () => {
   const [quote, setQuote] = useState('');
   const [author, setAuthor] = useState('');
+
+  useEffect(() => {
+    fetchQuote();
+  }, []);
+
   const fetchQuote = async () => {
     try {
       const response = await fetch('https://api.quotable.io/random');
       const data = await response.json();
-
       setQuote(data.content);
       setAuthor(data.author);
     } catch (error) {
       console.error('Error fetching the quote:', error);
     }
   };
-
-  useEffect(() => {
-    fetchQuote();
-  }, []);
-
 
   const tweetQuote = () => {
     const tweetUrl = `https://twitter.com/intent/tweet?text="${encodeURIComponent(quote)}" - ${encodeURIComponent(author)}`;
@@ -31,20 +30,19 @@ const App = () => {
         <p id="text" className="text-center text-xl md:text-2xl lg:text-3xl mb-4">
           "{quote}"
         </p>
-        <p id="author" className="text-left text-sm md:text-base lg:text-lg mb-6">
+        <p id="author" className="text-center text-sm md:text-base lg:text-lg mb-6">
           - {author}
         </p>
         <button 
           id="new-quote" 
-          className="bg-yellow-300 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-yellow-400 transition duration-5000 mb-4"
+          className="bg-blue-500 text-white px-6 py-3 rounded-md shadow-md hover:bg-blue-600 transition duration-200 mb-4"
           onClick={fetchQuote}
         >
           New Quote
         </button>
         <a 
           id="tweet-quote" 
-
-          className="bg-blue-700 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-800 transition duration-200"
+          className="bg-blue-700 text-white px-6 py-3 rounded-md shadow-md hover:bg-blue-800 transition duration-200"
           href={tweetQuote()}
           target="_blank" 
           rel="noopener noreferrer"
@@ -52,7 +50,6 @@ const App = () => {
           Tweet Quote
         </a>
       </div>
-
     </div>
   );
 }

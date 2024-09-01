@@ -3,27 +3,18 @@ import React, { useState, useEffect } from 'react';
 const App = () => {
   const [quote, setQuote] = useState('');
   const [author, setAuthor] = useState('');
-
-  
   const fetchQuote = async () => {
     try {
       const response = await fetch('https://api.quotable.io/random');
-        const data = await response.json();
+      const data = await response.json();
 
-
-
-         setQuote(data.content);
+      setQuote(data.content);
       setAuthor(data.author);
-
-
     } catch (error) {
-
-
-      console.error('Error fetching the quote:', error)
+      console.error('Error fetching the quote:', error);
     }
   };
 
-  
   useEffect(() => {
     fetchQuote();
   }, []);
@@ -32,8 +23,6 @@ const App = () => {
   const tweetQuote = () => {
     const tweetUrl = `https://twitter.com/intent/tweet?text="${encodeURIComponent(quote)}" - ${encodeURIComponent(author)}`;
     return tweetUrl;
-
-
   };
 
   return (

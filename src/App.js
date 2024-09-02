@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const App = () => {
+function App() {
   const [quote, setQuote] = useState('');
   const [author, setAuthor] = useState('');
 
@@ -57,6 +57,6 @@ const App = () => {
       </div>
     </div>
   );
-};
+}
 
 export default App;

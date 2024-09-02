@@ -28,10 +28,13 @@ const App = () => {
     <div className="flex items-center justify-center h-screen p-4">
       <div id="quote-box" className="flex flex-col items-center justify-center bg-white shadow-lg rounded-lg p-6 max-w-md w-full">
         <p id="text" className="text-center text-xl md:text-2xl lg:text-3xl mb-4">
-          &ldquo;{quote}&rdquo;
+          &ldquo;
+          {quote}
+          &rdquo;
         </p>
         <p id="author" className="text-center text-sm md:text-base lg:text-lg mb-6">
-          -<br />
+          -
+          <br />
           {author}
         </p>
         <button

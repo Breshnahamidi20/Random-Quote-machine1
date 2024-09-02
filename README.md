@@ -29,7 +29,7 @@ const App = () => {
 ```
 
 ## Demo 📸
-[Live Demo](https://deploy-preview-1--boisterous-cupcake-dc91c8.netlify.app/)
+[Live Demo]()
 
 ![Screenshot](1.png)
 
